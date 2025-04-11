@@ -1,0 +1,62 @@
+import datetime
+def assistente_virtuale(comando):
+    if comando == "Qual è la data di oggi?":
+        oggi = datetime.datetoday()
+        risposta = "La data di oggi è " + oggi.strftime("%d/%m/%Y")
+    elif comando == "Che ore sono?":
+        ora_attuale = datetime.datetime.now().time()
+        risposta = "L'ora attuale è " + ora_attuale.strftime("%H:%M")
+    elif comando == "Come ti chiami?":
+        risposta = "Mi chiamo Assistente Virtuale"
+    else:
+        risposta = "Non ho capito la tua domanda."
+    return risposta
+while True
+    comando_utente = input("Cosa vuoi sapere? ")
+    if comando_utente.lower() == "esci":
+        print("Arrivederci!")
+        break
+    else:
+        print(assistente_virtuale(comando_utente))
+
+
+Il codice riportato sopra dovrebbe eseguire un programma di assistente virtuale. Questo dovrebbe essere la sua utilià, se non per qualche errore che il codice ha.
+Un errore, a prima vista,  è la mancanza dei ":" dopo "True" che indica dove inizia l'istruzione e dove finisce il blocco di codice indentato, senza di esso Python non lo capirebbe.
+Un secondo errore è la mancanza del punto in "datetime.datetoday" dove sarebbe corretto scrivere "datetime.date.today()" , qui bisogna sapere che Python è un linguaggio di programmazione orientato agli oggetti (OOP), un paradigma di programmazione che organizza il codice attorno al concetto di oggetti, dove "datetime" è l'oggetto, "date" è una classe dentro l'oggetto e ".today()" è un metodo dell classe "date".
+Un altro accorgimento potrebbe essere aggiungere "comando.lower()" a ogni struttura condizionale nella prima parte del blocco di codice e quindi riscrivere gli input in minuscolo in modo che nell'esperienza utente scrivere in maiuscolo o minuscolo il programma possa capirlo lo stesso. 
+Un ultimo accorgimento potrebbe essere scrivere sotto "iport datetime":
+print("Ciao sono Assistente Virtuale puoi chiedermi:")
+print("- Qual è la data di oggi?")
+print("- Che ore sono?")
+print("- Come ti chiami?")
+Questo può migliorare l'intuitività del programma a chi la esegue  in modo che sappia cosa è capace di fare l'assistente virtuale.
+
+La soluzione quindi potrebbe essere:
+
+import datetime
+print("Ciao sono Assistente Virtuale puoi chiedermi:")
+print("- Qual è la data di oggi?")
+print("- Che ore sono?")
+print("- Come ti chiami?")
+def assistente_virtuale(comando):
+    if comando.lower() == "qual è la data di oggi?":
+        oggi = datetime.date.today()
+        risposta = "La data di oggi è " + oggi.strftime("%d/%m/%Y")
+    elif comando.lower() == "che ore sono?":
+        ora_attuale = datetime.datetime.now().time()
+        risposta = "L'ora attuale è " + ora_attuale.strftime("%H:%M")
+    elif comando.lower() == "come ti chiami?":
+        risposta = "Mi chiamo Assistente Virtuale"
+    else:
+        risposta = "Non ho capito la tua domanda."
+    return risposta
+while True:
+    comando_utente = input("Cosa vuoi sapere? ")
+    if comando_utente.lower() == "esci":
+        print("Arrivederci!")
+        break
+    else:
+        print(assistente_virtuale(comando_utente))
+
+
+
